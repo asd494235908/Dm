@@ -91,7 +91,7 @@ export default {
       box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
       background-color: $cf;
       .home_list_item:hover {
-        box-shadow: 0 0px 20px rgba(6, 11, 31, 0.2) inset;
+        box-shadow: 0 0px 21px rgba(6, 11, 31, 0.2) inset;
       }
       .home_list_item {
         width: 25%;
