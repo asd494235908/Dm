@@ -70,9 +70,12 @@
                 @click="shubLogIn"
                 >登录</a-button
               >
+              <a-divider>更多登陆方式</a-divider>
+              <div class="more_login">
+                <QqOutlined class="icon_qq" />
+              </div>
             </form>
           </div>
-          <div class="content"></div>
         </div>
       </div>
     </div>
@@ -83,16 +86,17 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted, getCurrentInstance,nextTick } from "vue";
+import { reactive, toRefs, onMounted, getCurrentInstance, nextTick } from "vue";
 import { notification, message } from "ant-design-vue";
 import { getStore, setStore, removeStore } from "@/utils/storage.js";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
-import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
+import { UserOutlined, LockOutlined, QqOutlined } from "@ant-design/icons-vue";
 export default {
   components: {
     UserOutlined,
     LockOutlined,
+    QqOutlined,
   },
   setup() {
     const { proxy } = getCurrentInstance();
@@ -317,6 +321,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/style/theme.scss";
+.more_login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+.icon_qq {
+  font-size: 30px;
+  color: rgb(66, 153, 254);
+  cursor: pointer;
+}
 .loading {
   position: fixed;
   top: 0;
@@ -364,9 +379,9 @@ export default {
     flex-direction: column;
     background-color: $cf;
     .logo {
-      width: 100px;
-      height: 100px;
-      margin-top: 12%;
+      width: 60px;
+      height: 60px;
+      margin-top: 30px;
       background-color: $cf;
       img {
         width: 100%;

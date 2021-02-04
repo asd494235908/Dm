@@ -1,7 +1,8 @@
-import { ConfigProvider, Pagination, Select, DatePicker, Radio, Upload, Avatar, Steps, Tooltip, Statistic, Button, Input, Checkbox, Breadcrumb, Carousel, Modal, InputNumber, Spin, BackTop, Popconfirm, Switch, Cascader, Tabs } from 'ant-design-vue'
+import { Divider,ConfigProvider, Pagination, Select, DatePicker, Radio, Upload, Avatar, Steps, Tooltip, Statistic, Button, Input, Checkbox, Breadcrumb, Carousel, Modal, InputNumber, Spin, BackTop, Popconfirm, Switch, Cascader, Tabs } from 'ant-design-vue'
 
 const ant = {
     install(Vue) {
+        Vue.component(Divider.name, Divider)
         Vue.component(ConfigProvider.name, ConfigProvider)
         Vue.component(Pagination.name, Pagination)
         Vue.component(Select.name, Select)
