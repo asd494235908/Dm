@@ -229,7 +229,7 @@ export default {
     MyTitel,
     Top,
     CloseOutlined,
-    PageBottom
+    PageBottom,
   },
   setup() {
     const route = useRoute();
@@ -314,6 +314,7 @@ export default {
     //发送请求删除
     const isDellGood_Item = async () => {
       let uid = store.state.userInfo.uid;
+      console.log(state.dellItemInfo);
       const res = await proxy.$http.post("/api/dellGoodItem", {
         isWeb: true,
         isAdd: false,
@@ -323,7 +324,7 @@ export default {
       if (res.data.success === true) {
         //删除成功调整user信息
         update_userInfo();
-        state.allCart = false
+        state.allCart = false;
         message.success("删除成功");
       } else {
         message.error("删除失败");
@@ -441,8 +442,7 @@ export default {
         },
       });
     };
-   
-   
+
     return {
       ...toRefs(state),
       userAddress,
@@ -684,7 +684,7 @@ export default {
     }
     .address_warp {
       width: 100%;
-      margin-top:60px;
+      margin-top: 60px;
       border-radius: 4px;
       background-color: $cf;
       box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);

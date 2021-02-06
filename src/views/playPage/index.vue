@@ -64,9 +64,9 @@ import { Modal } from "ant-design-vue";
 import MyHerder from "@/components/my_herder/herder.vue";
 import MyTitel from "@/components/my_titel/index.vue";
 import MyOrderList from "@/components/my_order_list/index.vue";
-import { AlipayOutlined,WechatOutlined } from "@ant-design/icons-vue";
+import { AlipayOutlined, WechatOutlined } from "@ant-design/icons-vue";
 export default {
-  components: { MyHerder, MyTitel, MyOrderList,AlipayOutlined,WechatOutlined },
+  components: { MyHerder, MyTitel, MyOrderList, AlipayOutlined, WechatOutlined },
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -150,7 +150,9 @@ export default {
     //返回上一页
     const _back = () => {
       setTimeout(() => {
-        router.go(-1);
+        router.push({
+          path: "/order",
+        });
       }, 2000);
       message.error("参数错误，即将返回上一页");
     };
@@ -203,9 +205,7 @@ export default {
           h("p", `点击确定返回上一页`),
         ]),
         onOk() {
-          setTimeout(() => {
-            router.go(-1);
-          }, 2000);
+          _back();
         },
       });
     };
@@ -215,7 +215,7 @@ export default {
       Modal.error({
         title: "请求被驳回",
         content: h("div", {}, [
-          h("p", `请求支付被驳回，支付失败���请联系管理员`),
+          h("p", `请求支付被驳回，支付失败请联系管理员`),
           h("p", `点击确定返回上一页`),
         ]),
         onOk() {

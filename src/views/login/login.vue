@@ -72,7 +72,9 @@
               >
               <a-divider>更多登陆方式</a-divider>
               <div class="more_login">
-                <QqOutlined class="icon_qq" />
+                <a :href="qqlogin" target="_blank" rel="noopener noreferrer"
+                  ><QqOutlined class="icon_qq"
+                /></a>
               </div>
             </form>
           </div>
@@ -86,7 +88,7 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted, getCurrentInstance, nextTick } from "vue";
+import { reactive, toRefs, onMounted, getCurrentInstance, nextTick, computed } from "vue";
 import { notification, message } from "ant-design-vue";
 import { getStore, setStore, removeStore } from "@/utils/storage.js";
 import { useStore } from "vuex";
@@ -154,6 +156,9 @@ export default {
       });
     });
     const onUserChange = () => {};
+    const qqlogin = computed(() => {
+      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101935386}&redirect_uri=${encodeURIComponent("https://www.dcmaomi.com:3000/api/webqq")}&state=aaa&scope=scope=get_user_info`;
+    });
     //获取用户本地密码
     const getUser = () => {
       let key = getStore("DcMmkey");
@@ -314,6 +319,7 @@ export default {
       openNotification,
       vipiSVG,
       inuser,
+      qqlogin,
     };
   },
 };

@@ -255,10 +255,13 @@ export default {
     const handelchange = () => {
       context.emit("updata");
     };
+
     const confirm_order = async () => {
+      
       const res = await proxy.$http.post("/api/dellOrder", {
         data: props.order_item,
       });
+
       if (res.data.success === true) {
         message.info("删除成功");
         context.emit("updata");

@@ -116,7 +116,7 @@
           <my-titel title="商品详情">
             <template v-slot:content v-if="goodData.listImg !== undefined">
               <img
-              class="good_bouttom_img"
+                class="good_bouttom_img"
                 v-lazy="{ src: goodData.listImg.list_url }"
                 alt=""
               />
@@ -162,7 +162,7 @@ export default {
     MyTitel,
     ImgMask,
     Top,
-    PageBottom
+    PageBottom,
   },
   setup() {
     const { proxy } = getCurrentInstance();
@@ -525,7 +525,7 @@ ul {
       margin-top: 60px;
       box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
       background-color: $cf;
-      .good_bouttom_img{
+      .good_bouttom_img {
         width: 100%;
         height: 100%;
       }

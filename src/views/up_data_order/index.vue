@@ -200,7 +200,15 @@
 </template>
 
 <script>
-import { reactive, toRefs, getCurrentInstance, onMounted, computed, h,createVNode } from "vue";
+import {
+  reactive,
+  toRefs,
+  getCurrentInstance,
+  onMounted,
+  computed,
+  h,
+  createVNode,
+} from "vue";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import { message, Modal } from "ant-design-vue";
@@ -209,10 +217,18 @@ import MyHerder from "@/components/my_herder/herder.vue";
 import MyTitel from "@/components/my_titel/index.vue";
 import Top from "@/components/go_top/index.vue";
 import PageBottom from "@/components/page_bottom/index.vue";
-import { RightOutlined,ExclamationCircleOutlined } from "@ant-design/icons-vue";
-createVNode
+import { RightOutlined, ExclamationCircleOutlined } from "@ant-design/icons-vue";
+createVNode;
 export default {
-  components: { MyHerder, MyOrderList, MyTitel, Top, RightOutlined,ExclamationCircleOutlined,PageBottom },
+  components: {
+    MyHerder,
+    MyOrderList,
+    MyTitel,
+    Top,
+    RightOutlined,
+    ExclamationCircleOutlined,
+    PageBottom,
+  },
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -301,6 +317,11 @@ export default {
       });
       if (res.data.success === true) {
         message.info("获取订单成功");
+        if (res.data.data.length === 0) {
+          _back();
+          return;
+        }
+        console.log(res.data.data);
         res.data.data.forEach((item) => {
           item.time = proxy.$dayjs(item.time).format("YYYY-MM-DD HH:mm:ss");
           item.play_time = proxy.$dayjs(item.time).format("YYYY-MM-DD HH:mm:ss");
@@ -417,10 +438,10 @@ export default {
           okType: "danger",
           cancelText: "我在改改",
           onOk() {
-                goPay();
+            goPay();
           },
           onCancel() {
-             state.btnLoading = false;
+            state.btnLoading = false;
           },
         });
       } else {
@@ -428,6 +449,7 @@ export default {
       }
     };
     const goPay = async () => {
+      state.btnLoading = false;
       const res = await proxy.$http.post("/api/play", {
         play_id: state.play_id,
         order_id: state.order_id,
