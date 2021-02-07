@@ -11,7 +11,7 @@
           <div class="content">
             <form>
               <div class="user_Name">
-                <UserOutlined style="color: #ff9344; fontSize: 20px; marginRight: 10px" />
+                <UserOutlined class="icon" />
                 <a-input
                   v-model:value="user_Name"
                   placeholder="请输入您的账号"
@@ -22,7 +22,7 @@
                 />
               </div>
               <div class="user_Password">
-                <LockOutlined style="color: #ff9344; fontSize: 20px; marginRight: 10px" />
+                <LockOutlined class="icon" />
                 <a-input-password
                   v-model:value="user_Password"
                   allow-clear
@@ -73,7 +73,7 @@
               <a-divider>更多登陆方式</a-divider>
               <div class="more_login">
                 <a :href="qqlogin" target="_blank" rel="noopener noreferrer"
-                  ><QqOutlined class="icon_qq"
+                  ><img src="../../../public/static/img/Connect_logo_3.png" alt=""
                 /></a>
               </div>
             </form>
@@ -157,7 +157,9 @@ export default {
     });
     const onUserChange = () => {};
     const qqlogin = computed(() => {
-      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101935386}&redirect_uri=${encodeURIComponent("https://www.dcmaomi.com:3000/api/webqq")}&state=aaa&scope=scope=get_user_info`;
+      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101935386}&redirect_uri=${encodeURIComponent(
+        "https://www.dcmaomi.com:3000/api/webqq"
+      )}&state=aaa&scope=scope=get_user_info`;
     });
     //获取用户本地密码
     const getUser = () => {
@@ -327,6 +329,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/style/theme.scss";
+.icon {
+  color: #ff9344;
+  font-size: 20px;
+  margin-right: 10px;
+}
 .more_login {
   display: flex;
   align-items: center;
