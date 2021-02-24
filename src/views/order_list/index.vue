@@ -7,6 +7,7 @@
       </div>
     </div>
     <Top></Top>
+    <PageBottom></PageBottom>
   </div>
 </template>
 
@@ -18,12 +19,13 @@ import { message } from "ant-design-vue";
 import MyHerder from "@/components/my_herder/herder.vue";
 import MyOrderList from "@/components/my_order_list/index.vue";
 import Top from "@/components/go_top/index.vue";
-
+import PageBottom from "@/components/page_bottom/index.vue";
 export default {
   components: {
     MyHerder,
     MyOrderList,
-    Top
+    Top,
+    PageBottom
   },
   setup() {
     const { proxy } = getCurrentInstance();

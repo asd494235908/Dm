@@ -196,7 +196,8 @@ export default {
     const userMouseover = (e) => {
       state.user = true;
       nextTick(() => {
-        user_refs.style.height = 400 + "px";
+        console.log()
+        user_refs.style.height = store.state.login? 400 + "px":'350px';
       });
     };
     const goodMouseout = () => {

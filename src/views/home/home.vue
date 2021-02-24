@@ -35,8 +35,10 @@
         <div v-if="item.sort === 4">
           <div class="home_list">
             <div class="img_warp" v-for="(o, j) in item.list" :key="'home_list' + j">
-              <img v-lazy="{ src: o.img }" alt="" />
-              <div class="img_warp_link"></div>
+              <router-link :to="'/commodity?link=' + o.hot_link">
+                <img v-lazy="{ src: o.img }" alt="" />
+                <div class="img_warp_link"></div>
+              </router-link>
             </div>
           </div>
         </div>

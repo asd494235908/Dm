@@ -9,7 +9,7 @@
           </li>
           <li class="item_link">
             <a href="https://dmh5.dcmaomi.com/" target="_blank"
-              >DM商城</a
+              >移动DM商城</a
             >
           </li>
 
@@ -18,27 +18,6 @@
           </li>
           <li class="item_link">
             <a href="https://dcpay.dcmaomi.com/Mobile" target="_blank">移动APP</a>
-          </li>
-        </ul>
-        <ul class="bottom_warp_item">
-          <h3 class="items_titel">友情链接</h3>
-          <li class="item_link">
-            <a href="https://www.vue3js.cn/docs/zh/" target="_blank">Vue.js</a>
-          </li>
-          <li class="item_link">
-            <a href="https://2x.antdv.com/docs/vue/introduce-cn/" target="_blank"
-              >Ant Design Vue</a
-            >
-          </li>
-
-          <li class="item_link">
-            <a href="https://element.eleme.cn/#/zh-CN" target="_blank">Element Ui</a>
-          </li>
-          <li class="item_link">
-            <a href="https://uniapp.dcloud.io/README" target="_blank">Uni-App</a>
-          </li>
-          <li class="item_link">
-            <a href="https://uviewui.com/" target="_blank">uView</a>
           </li>
         </ul>
         <ul class="bottom_warp_item">

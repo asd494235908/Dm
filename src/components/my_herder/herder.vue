@@ -128,7 +128,7 @@ export default {
 
   setup(props) {
     const store = useStore();
-    //初始化一下本���购物车 /购物车组件被引用了两次
+    //初始化一下本购物车 /购物车组件被引用了两次
     store.commit("defaultUserCart");
     const { proxy } = getCurrentInstance();
     const state = reactive({

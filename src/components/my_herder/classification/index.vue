@@ -11,8 +11,34 @@
               @mouseover="selectStyle(index)"
             >
               <span
-                ><router-link :to="'/commodity?link='+item.name" > {{ item.name }}</router-link></span
+                ><router-link :to="'/commodity?link=' + item.name">
+                  {{ item.name }}</router-link
+                ></span
               ><span class="letter" v-if="index !== class_arr.length - 1">·</span>
+            </li>
+            <li class="class_item morlink">
+              <span class="letter">·</span
+              ><span
+                ><a href="https://dcpay.dcmaomi.com" target="_blank">DcPay支付</a></span
+              >
+            </li>
+            <li class="class_item morlink">
+              <span class="letter">·</span
+              ><span
+                ><a href="https://dmh5.dcmaomi.com/" target="_blank">移动DM商城</a></span
+              >
+            </li>
+            <li class="class_item morlink">
+              <span class="letter">·</span
+              ><span
+                ><a href="https://tm.dcmaomi.com/" target="_blank">DM后台管理</a></span
+              >
+            </li>
+            <li class="class_item morlink">
+              <span class="letter">·</span
+              ><span
+                ><a href="https://dcpay.dcmaomi.com/Mobile" target="_blank">移动APP</a></span
+              >
             </li>
           </ul>
         </div>
@@ -39,7 +65,9 @@
             <li class="class_list" v-for="(o, j) in item.dtail_list" :key="o.name + j">
               <img v-lazy="{ src: o.img }" alt="" />
 
-              <router-link :to="'/commodity?link='+o.search"><p>{{ o.name }}</p></router-link>
+              <router-link :to="'/commodity?link=' + o.search"
+                ><p>{{ o.name }}</p></router-link
+              >
             </li>
           </ul>
         </div>
@@ -138,6 +166,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/style/theme.scss";
+.morlink {
+  a {
+    font-weight: 600;
+  }
+}
 .class_mask {
   position: absolute;
   width: 100%;
@@ -169,7 +202,7 @@ export default {
         align-items: center;
         margin: 20px;
         cursor: pointer;
-        a{
+        a {
           color: $c6;
         }
         img {

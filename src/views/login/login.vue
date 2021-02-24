@@ -157,7 +157,7 @@ export default {
     });
     const onUserChange = () => {};
     const qqlogin = computed(() => {
-      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101935386}&redirect_uri=${encodeURIComponent(
+      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101932091}&redirect_uri=${encodeURIComponent(
         "https://www.dcmaomi.com:3000/api/webqq"
       )}&state=aaa&scope=scope=get_user_info`;
     });

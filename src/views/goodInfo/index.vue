@@ -12,7 +12,13 @@
                 :key="'img' + index"
                 @click="handel_index_Img(index)"
               >
-                <img v-lazy="{ src: item }" alt="" class="img" :key="item" />
+                <img
+                  v-if="item !== '' || item !== 'null'"
+                  v-lazy="{ src: item }"
+                  alt=""
+                  class="img"
+                  :key="item"
+                />
               </li>
               <li class="img_warp_active" :style="{ top: active_top + 'px' }"></li>
             </ul>
@@ -152,6 +158,7 @@ import MyHerder from "@/components/my_herder/herder.vue";
 import { useRoute, useRouter } from "vue-router";
 import { notification, message } from "ant-design-vue";
 import { useStore } from "vuex";
+import { setStore, getStore } from "../../utils/storage.js";
 import MyTitel from "@/components/my_titel/index.vue";
 import ImgMask from "@/components/img_mask/index.vue";
 import Top from "@/components/go_top/index.vue";
@@ -198,8 +205,32 @@ export default {
       ) {
         state.spec_id = Number(route.query.spec_id);
         state.idx = Number(route.query.idx);
+
+        seve_history();
       } else {
         _back();
+      }
+    };
+    //存入浏览历史
+    const seve_history = () => {
+      const history = {
+        spec_id: state.spec_id,
+        idx: state.idx,
+      };
+      const old_history = getStore("history");
+      let new_history = JSON.parse(old_history);
+      if (old_history === null || old_history === "") {
+        setStore("history", [history]);
+      } else {
+        new_history = new_history.filter((item, index) => {
+          if (item.spec_id == history.spec_id && item.idx == history.idx) {
+            return;
+          } else {
+            return item;
+          }
+        });
+        new_history.unshift(history);
+        setStore("history", new_history);
       }
     };
     const get_data = async () => {
@@ -246,7 +277,7 @@ export default {
       for (let i in index_good.value) {
         if (i.indexOf("img") !== -1) {
           if (i.indexOf("show_img") !== -1) continue;
-          if (index_good.value[i] !== null) {
+          if (index_good.value[i] !== null && index_good.value[i] !== "") {
             img.push(index_good.value[i]);
           }
         }
@@ -267,6 +298,7 @@ export default {
     //选择当前款式
     const chanheStyle = (index) => {
       state.idx = index;
+      seve_history();
     };
     //是否有原价
     const isprice = computed(() => {
