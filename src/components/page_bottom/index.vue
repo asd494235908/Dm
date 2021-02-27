@@ -8,9 +8,7 @@
             <a href="https://dcpay.dcmaomi.com" target="_blank">DcPay支付</a>
           </li>
           <li class="item_link">
-            <a href="https://dmh5.dcmaomi.com/" target="_blank"
-              >移动DM商城</a
-            >
+            <a href="https://dmh5.dcmaomi.com/" target="_blank">移动DM商城</a>
           </li>
 
           <li class="item_link">
@@ -42,9 +40,12 @@
           </li>
         </ul>
         <div class="bottom_warp_icons">
-          <a href="" class="icon_warp"><GithubOutlined class="icon" /></a>
+          <a href=" https://github.com/asd494235908/Dm" target="_blank" class="icon_warp"
+            ><GithubOutlined class="icon"
+          /></a>
           <div class="icon_warp" @mouseout="iconOut" @mouseover="iconIn">
             <QqOutlined class="icon qqicon" />
+
             <div class="img" v-show="isImg">
               <img src="../../../public/static/img/qqimg.png" alt="" />
             </div>

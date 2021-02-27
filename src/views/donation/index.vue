@@ -104,6 +104,7 @@
     <!-- <a-button type="primary">  -->
     <!-- <a target="_blank" :href="isQQlogin">Primary</a> -->
     <!-- </a-button> -->
+    <Weimesg></Weimesg>
     <page-bottom></page-bottom>
   </div>
 </template>
@@ -116,6 +117,7 @@ import PageBottom from "@/components/page_bottom/index.vue";
 import zhCN from "ant-design-vue/es/locale/zh_CN";
 import MyHerder from "@/components/my_herder/herder.vue";
 import MyTitel from "@/components/my_titel/index.vue";
+import Weimesg from "@/components/weimesg/index.vue";
 import { message } from "ant-design-vue";
 
 export default {
@@ -130,6 +132,7 @@ export default {
     UpOutlined,
     DownOutlined,
     PageBottom,
+    Weimesg
   },
   setup() {
     const route = useRoute();

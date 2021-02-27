@@ -57,6 +57,7 @@
                     v-model:value="login_nopas"
                     size="large"
                     placeholder="请输入验证码"
+                    @keyup.enter="shubLogIn"
                     :style="{ borderColor: login_nopas_border }"
                   />
                   <span v-if="svg_erorr" style="color: red">验证码输入错误</span>
@@ -157,8 +158,8 @@ export default {
     });
     const onUserChange = () => {};
     const qqlogin = computed(() => {
-      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101932091}&redirect_uri=${encodeURIComponent(
-        "https://www.dcmaomi.com:3000/api/webqq"
+      return `https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=${101937754}&redirect_uri=${encodeURIComponent(
+        "https://www.dcmaomi.com/donation"
       )}&state=aaa&scope=scope=get_user_info`;
     });
     //获取用户本地密码
@@ -313,6 +314,9 @@ export default {
     const inuser = () => {
       message.warning("暂未开放此功能");
     };
+    const asd = () => {
+      console.log(1);
+    };
     return {
       ...toRefs(state),
       onUserChange,
@@ -322,6 +326,7 @@ export default {
       vipiSVG,
       inuser,
       qqlogin,
+      asd,
     };
   },
 };
