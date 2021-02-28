@@ -72,10 +72,11 @@
                 >登录</a-button
               >
               <a-divider>更多登陆方式</a-divider>
-              <div class="more_login">
-                <a :href="qqlogin" target="_blank" rel="noopener noreferrer"
+              <div class="more_login" @click="handelQQ">
+                <!-- <a :href="qqlogin" target="_blank" rel="noopener noreferrer"
                   ><img src="../../../public/static/img/Connect_logo_3.png" alt=""
-                /></a>
+                /></a> -->
+                <img src="../../../public/static/img/Connect_logo_3.png" alt="" />
               </div>
             </form>
           </div>
@@ -317,6 +318,9 @@ export default {
     const asd = () => {
       console.log(1);
     };
+    const handelQQ = () => {
+      message.warning('暂未开放，敬请期待')
+    };
     return {
       ...toRefs(state),
       onUserChange,
@@ -327,6 +331,7 @@ export default {
       inuser,
       qqlogin,
       asd,
+      handelQQ
     };
   },
 };
