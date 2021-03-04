@@ -18,9 +18,9 @@
 
 - [DM微信小程序 APP前端 现已开源！](https://github.com/asd494235908/DM-Mobile-terminal)
     
-    [![WX20190924-234416@1x.png](https://www.dcmaomi.com:3010/serverImage/20210305010340_18719.png)](https://github.com/asd494235908/DM-Mobile-terminal)
+    [![WX20190924-234416@1x.png](https://www.dcmaomi.com:3010/serverImage/20210305010710_12523.png)](https://github.com/asd494235908/DM-Mobile-terminal)
 
-- [DM-TM后端](https://github.com/Exrick/x-boot)
+- [DM-TM后端](https://github.com/asd494235908/TerMinal)
 
     ![](https://www.dcmaomi.com:3010/serverImage/20210305000838_16208.png)
 
