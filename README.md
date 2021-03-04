@@ -22,7 +22,7 @@
 
 - [DM-TM后端](https://github.com/asd494235908/TerMinal)
 
-    ![](https://www.dcmaomi.com:3010/serverImage/20210305000838_16208.png)
+    ![](https://www.dcmaomi.com:3010/serverImage/20210305011146_16923.png)
 
 ### 基于SOA架构的分布式购物电商商城
 - [x] 后台管理系统：管理商品、订单、类目、商品规格属性、用户、权限、系统统计、系统日志以及前台内容等功能
@@ -44,13 +44,13 @@
 - [x]  首页导航栏可后台配置
 ![](https://www.dcmaomi.com:3010/serverImage/20210305000838_16208.png "后台首页")
 
-![](https://www.dcmaomi.com:3010/serverImage/20210305000838_15147.png "商品管理")
+![](https://www.dcmaomi.com:3010/serverImage/20210305011146_13147.png "商品管理")
 
-![](https://www.dcmaomi.com:3010/serverImage/20210305000838_16936.png "系统日志")
+![](https://www.dcmaomi.com:3010/serverImage/20210305011146_16878.png "系统日志")
 
-![](https://www.dcmaomi.com:3010/serverImage/20210305000838_10999.png "前台首页")
+![](https://www.dcmaomi.com:3010/serverImage/20210305011146_17326.png "前台首页")
 
-![](https://www.dcmaomi.com:3010/serverImage/20210305000838_15814.png "用户管理")
+![](https://www.dcmaomi.com:3010/serverImage/20210305011146_16426.png "用户管理")
 
 ### 前端所用技术
 - 后台页面
