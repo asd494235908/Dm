@@ -16,8 +16,10 @@ app.use(Antd)
 import axios from 'axios'
 import VueLazyLoad from 'vue3-lazyload'
 import { getStore } from "@/utils/storage.js";
-// axios.defaults.baseURL = "http://192.168.2.202:3000"
-axios.defaults.baseURL = "https://www.dcmaomi.com:3000"
+
+// axios.defaults.baseURL = "http://您的本地服务器地址:3000"  //注意http与https
+
+
 //每次发送请求时候都要获取token，有token就是登录的，没有就是为登录
 axios.interceptors.request.use(config => {
     const token = getStore('my_token')
