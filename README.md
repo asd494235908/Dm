@@ -44,7 +44,7 @@
 - [x]  首页导航栏可后台配置
 <img src="https://www.dcmaomi.com:3010/serverImage/20210305000838_16208.png" width="100%" height="100%" alt="后台首页"/><br/>
 <img src="https://www.dcmaomi.com:3010/serverImage/20210305011146_13147.png" width="100%" height="100%" alt="商品管理"/><br/>
-<img src="https://www.dcmaomi.com:3010/serverImage/20210305011146_16878.png " width="100%" height="100%" alt="系统日志"/><br/>
+<img src="https://www.dcmaomi.com:3010/serverImage/20210305011146_16878.png" width="100%" height="100%" alt="系统日志"/><br/>
 <img src="https://www.dcmaomi.com:3010/serverImage/20210305011146_17326.png" width="100%" height="100%" alt="前台首页"/><br/>
 <img src="https://www.dcmaomi.com:3010/serverImage/20210305011146_16426.png" width="100%" height="100%" alt="用户管理"/><br/>
 
