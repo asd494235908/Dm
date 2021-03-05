@@ -2,13 +2,13 @@
 [![](https://img.shields.io/badge/version-1.0-brightgreen)](https://github.com/asd494235908/DM)
 [![GitHub stars](https://img.shields.io/github/stars/asd494235908/DM.svg?style=social&label=Stars)](https://github.com/asd494235908/DM)
 [![GitHub forks](https://img.shields.io/github/forks/asd494235908/DM.svg?style=social&label=Fork)](https://github.com/asd494235908/Dm)
- 
+ - [若图片显示不完整请跳转码云](https://gitee.com/dcmaomi/Dm)
 ### 项目已部署，在线Demo
 - 前台商城：https://www.dcmaomi.com
 - 后台管理系统：https://tm.dcmaomi.com
 
 ### 单体版获取
-- 单体DM 非布式 可跑在1g1核服务器上
+- 单体DM 分布式 可跑在1g1核服务器上
 - 获取方式：进入商城 https://www.dcmaomi.com 登陆后随意测试支付商品 填写捐赠信息 支付成功后将自动发至您填写的邮箱
 
 ### 前台页面为基于Vue3.0的独立项目
