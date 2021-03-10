@@ -11,9 +11,9 @@
                 v-for="(item, index) in imgs"
                 :key="'img' + index"
                 @click="handel_index_Img(index)"
+                v-show="item !== '' && item !== 'null' && item !== 'NULL'"
               >
                 <img
-                  v-if="item !== '' || item !== 'null'"
                   v-lazy="{ src: item }"
                   alt=""
                   class="img"

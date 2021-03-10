@@ -110,6 +110,8 @@ import {
   provide,
   onUnmounted,
 } from "vue";
+import {  useRouter } from "vue-router";
+
 import user from "@/components/my_herder/user/index.vue";
 import MyClass from "@/components/my_herder/classification/index.vue";
 import { message } from "ant-design-vue";
@@ -128,6 +130,7 @@ export default {
 
   setup(props) {
     const store = useStore();
+    const router = useRouter();
     //初始化一下本购物车 /购物车组件被引用了两次
     store.commit("defaultUserCart");
     const { proxy } = getCurrentInstance();
@@ -202,14 +205,10 @@ export default {
           state.isHot = true;
           return;
         }
-        onSearch();
+        changeGet_Data();
       }, 500);
     };
-    const onSearch = () => {
-      if (state.value === "" || state.value === null) {
-        message.error("请输入搜索内容");
-        return;
-      }
+    const changeGet_Data = () => {
       state.isHot = false;
       clearTimeout(state.timer);
       state.timer = setTimeout(async () => {
@@ -221,9 +220,27 @@ export default {
         }
       }, 300);
     };
+    const onSearch = () => {
+      if (state.value === "" || state.value === null) {
+        message.error("请输入搜索内容");
+        return;
+      }
+      router.push({
+        path: "/commodity",
+        query: {
+          link: state.value,
+        },
+      });
+    };
     //点击搜索内容
     const handelSearchItem = (item) => {
-      console.log(item);
+      router.push({
+        path: "/GoodInfo",
+        query: {
+          spec_id: item.spec_id,
+          idx: 0,
+        },
+      });
     };
     const searchFocus = () => {
       state.isHot = true;

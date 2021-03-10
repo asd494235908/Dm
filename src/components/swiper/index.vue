@@ -39,7 +39,9 @@
   </div>
 </template>
 <script>
-import { reactive, toRefs, computed, watch } from "vue";
+import { reactive, toRefs } from "vue";
+import { useRouter } from "vue-router";
+
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons-vue";
 export default {
   props: {
@@ -52,11 +54,27 @@ export default {
     RightCircleOutlined,
   },
   setup(props) {
+    const router = useRouter();
     const state = reactive({
       cunter: 0,
     });
     const handelSwiper = (item) => {
-      console.log(item)
+      if (item.link &&item.link!=='null') {
+        router.push({
+          path: "/GoodInfo",
+          query: {
+            spec_id: item.link,
+            idx: 0,
+          },
+        });
+      } else {
+        router.push({
+        path: "/commodity",
+        query: {
+          link: item.alt,
+        },
+      });
+      }
     };
     return {
       ...toRefs(state),
