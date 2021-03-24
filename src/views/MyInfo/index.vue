@@ -264,6 +264,7 @@ export default {
       border-radius: 4px;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
       overflow: hidden;
+      background-color: $cf;
     }
   }
 }

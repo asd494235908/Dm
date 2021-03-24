@@ -276,6 +276,7 @@ export default {
       border-left: 1px solid $xt;
       border-top: 1px solid $xt;
       margin-top: 30px;
+      background-color: $cf;
       box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
       border-radius: 4px;
       position: relative;

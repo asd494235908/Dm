@@ -30,7 +30,8 @@
           class="swiper"
           v-for="(item, index) in swiper_data"
           :key="'swiper' + index"
-          @click="handelSwiper(item)"
+          @mousedown="swiperdown"
+          @mouseup="swiperup(item, $event)"
         >
           <img class="swiper_img" :src="item.img_url" alt="" />
         </div>
@@ -56,10 +57,20 @@ export default {
   setup(props) {
     const router = useRouter();
     const state = reactive({
-      cunter: 0,
+      x: 0,
+      y: 0,
     });
+    const swiperdown = (e) => {
+      state.x = e.clientX;
+      state.y = e.clientY;
+    };
+    const swiperup = (item, e) => {
+      if (e.clientX === state.x && e.clientY === state.y) {
+        handelSwiper(item);
+      }
+    };
     const handelSwiper = (item) => {
-      if (item.link &&item.link!=='null') {
+      if (item.link && item.link !== "null") {
         router.push({
           path: "/GoodInfo",
           query: {
@@ -69,16 +80,17 @@ export default {
         });
       } else {
         router.push({
-        path: "/commodity",
-        query: {
-          link: item.alt,
-        },
-      });
+          path: "/commodity",
+          query: {
+            link: item.alt,
+          },
+        });
       }
     };
     return {
       ...toRefs(state),
-      handelSwiper,
+      swiperdown,
+      swiperup,
     };
   },
 };

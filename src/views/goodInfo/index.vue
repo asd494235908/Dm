@@ -13,12 +13,7 @@
                 @click="handel_index_Img(index)"
                 v-show="item !== '' && item !== 'null' && item !== 'NULL'"
               >
-                <img
-                  v-lazy="{ src: item }"
-                  alt=""
-                  class="img"
-                  :key="item"
-                />
+                <img v-lazy="{ src: item }" alt="" class="img" :key="item" />
               </li>
               <li class="img_warp_active" :style="{ top: active_top + 'px' }"></li>
             </ul>
@@ -572,6 +567,7 @@ ul {
       align-items: center;
       justify-content: space-between;
       box-shadow: 0 0px 4px rgba(0, 0, 0, 0.1);
+      background-color: $cf;
       // border: solid $xt 1px;
       .good_top_left {
         width: 160px;

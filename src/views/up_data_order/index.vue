@@ -239,7 +239,7 @@ export default {
       AllPrice: 0,
       idx: "0",
       isEmail: false,
-      email: "554702612@qq.com",
+      email: "",
       mesg: "", //用户留言
       infoValue: {},
       info: "未选择",
