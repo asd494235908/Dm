@@ -192,7 +192,7 @@
 </template>
 
 <script>
-import { computed, nextTick, reactive, toRefs, onMounted, onUnmounted } from "vue";
+import { computed, nextTick, reactive, toRefs, onMounted, onUnmounted, watch } from "vue";
 import { ColSize } from "ant-design-vue/lib/grid/Col";
 
 export default {
@@ -255,6 +255,14 @@ export default {
       index: 0,
       SwitchTimer: null,
     });
+    watch(
+      () => {
+        return props.Img_Index;
+      },
+      (value, oldValue) => {
+        state.index = value;
+      }
+    );
     onMounted(() => {
       Indexsize();
       state.index = props.Img_Index;
@@ -404,7 +412,7 @@ export default {
       upImg,
       nextImg,
       close,
-      initStyle
+      initStyle,
     };
   },
 };

@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Index from '../views/index/index.vue'
+// import Index from '../views/index/index.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Index',
-    component: Index,
+    component: () => import(/* webpackChunkName: "about" */ '../views/index/index.vue'),
     meta: {
       title: 'DM商城'
     }
