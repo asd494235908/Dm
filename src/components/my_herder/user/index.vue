@@ -2,7 +2,9 @@
   <div class="template_warp">
     <div class="user_info_warp">
       <div class="user" @mouseout="userMouseout" @mouseover="userMouseover">
-        <router-link to="/order"><div class="user_img" :style="{ backgroundPositionX: userX + 'px' }"></div></router-link>
+        <router-link to="/order"
+          ><div class="user_img" :style="{ backgroundPositionX: userX + 'px' }"></div
+        ></router-link>
         <div class="user_info" :style="{ top: difal_top + 'px' }" :ref="user_warp">
           <div class="user_info_warp">
             <img
@@ -39,7 +41,9 @@
         </div>
       </div>
       <div id="good" class="good" @mouseout="goodMouseout" @mouseover="goodMouseover">
-        <router-link to="/ShoppingCart"><div class="good_img" :style="{ backgroundPositionX: goodX + 'px' }"></div></router-link>
+        <router-link to="/ShoppingCart"
+          ><div class="good_img" :style="{ backgroundPositionX: goodX + 'px' }"></div
+        ></router-link>
         <div
           class="good_Info"
           :style="{ height: Good_Height + 'px', top: difal_top + 'px' }"
@@ -51,7 +55,11 @@
               :key="'good_Info_item' + index"
             >
               <div class="item_left">
-                <img v-lazy="{ src: item.data[0].img_url1 }" :key="item.data[0].img_url1+'item_left'" alt="" />
+                <img
+                  v-lazy="{ src: item.data[0].img_url1 }"
+                  :key="item.data[0].img_url1 + 'item_left'"
+                  alt=""
+                />
               </div>
               <div class="item_right">
                 <p class="item_name">
@@ -155,6 +163,14 @@ export default {
       dell_index: 0,
       Good_Height: 0,
     });
+    watch(
+      () => {
+        return store.state.nav_Show;
+      },
+      (x, y) => {
+        state.Good_Height = 0
+      }
+    );
     const ModalText = computed(() => {
       if (state.dell_Item === null) {
         return "";
@@ -196,8 +212,8 @@ export default {
     const userMouseover = (e) => {
       state.user = true;
       nextTick(() => {
-        console.log()
-        user_refs.style.height = store.state.login? 400 + "px":'350px';
+        console.log();
+        user_refs.style.height = store.state.login ? 400 + "px" : "350px";
       });
     };
     const goodMouseout = () => {
@@ -245,7 +261,7 @@ export default {
         state.visible = false;
         state.good = true;
         _changeGoodHeight();
-        message.success('删除成功')
+        message.success("删除成功");
       }
     };
     //删除购物车
@@ -263,7 +279,7 @@ export default {
       });
       if (res.data.success === true) {
         update_userInfo();
-        message.success('删除成功')
+        message.success("删除成功");
       } else {
         message.error("删除失败");
       }
@@ -277,7 +293,7 @@ export default {
         state.visible = false;
         state.good = true;
       } else {
-        message.error("跟���数据失败");
+        message.error("跟新数据失败");
       }
     };
     const login = computed(() => {
@@ -330,11 +346,11 @@ export default {
         });
       }
     };
-    const goCart = ()=>{
+    const goCart = () => {
       router.push({
-          path: "/ShoppingCart",
-        });
-    }
+        path: "/ShoppingCart",
+      });
+    };
     return {
       ...toRefs(state),
       userMouseout,
@@ -498,9 +514,6 @@ export default {
       min-height: 160px;
       max-height: 600px;
       overflow: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding-bottom: 60px;
       // position: relative;
       .good_Info_item {

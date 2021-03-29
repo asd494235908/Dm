@@ -143,6 +143,10 @@ export default {
       state.pic = "";
     };
     const submit_mest = async () => {
+      if (state.value2 == "") {
+        message.error("请输入您的留言");
+        return;
+      }
       if (state.nickename === "" && state.pic == "") {
         message.error("请使用qq登录");
       } else {
@@ -153,7 +157,7 @@ export default {
           mesg: state.value2,
         });
         if (res.data.success === true) {
-          state.value2 = ""
+          state.value2 = "";
           message.success("提交成功，感谢您的建议");
           state.btn_loading = false;
         } else {

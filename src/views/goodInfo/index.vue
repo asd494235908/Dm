@@ -441,7 +441,7 @@ export default {
 
           adminTion.then(() => {
             refs.style.top = top - 180 + "px";
-            refs.style.left = left + "px";
+            refs.style.left = left - 180 + "px";
             refs.style.transform = "scale(.1)";
             store.commit("changenav_Good", true);
 
