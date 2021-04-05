@@ -6,7 +6,7 @@
           <div class="home_list">
             <div class="img_warp" v-for="(o, j) in item.list" :key="'home_list' + j">
               <router-link :to="'/commodity?link=' + o.hot_link">
-                <img v-lazy="{ src: o.img }" alt="" />
+                <HotImg :img="o.img"></HotImg>
                 <div class="img_warp_link"></div>
               </router-link>
             </div>
@@ -36,7 +36,7 @@
           <div class="home_list">
             <div class="img_warp" v-for="(o, j) in item.list" :key="'home_list' + j">
               <router-link :to="'/commodity?link=' + o.hot_link">
-                <img v-lazy="{ src: o.img }" alt="" />
+               <HotImg :img="o.img"></HotImg>
                 <div class="img_warp_link"></div>
               </router-link>
             </div>
@@ -51,6 +51,7 @@
 import { reactive, toRefs, computed } from "vue";
 import MyTitel from "@/components/my_titel/index.vue";
 import GoodItem from "@/components/good_Item/index.vue";
+import HotImg from "@/components/hot_img/index.vue";
 export default {
   props: {
     home_data: {
@@ -61,15 +62,20 @@ export default {
   components: {
     MyTitel,
     GoodItem,
+    HotImg
   },
   setup(props) {
-    const state = reactive({});
+    const state = reactive({
+      isimg: false,
+    });
     const limiData = computed(() => {
       return props.home_data;
     });
+    // const slef = this
+   
     return {
       ...toRefs(state),
-      limiData,
+      limiData
     };
   },
 };
@@ -126,6 +132,9 @@ export default {
         width: 25%;
         height: 197px;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         .img_warp_link:hover {
           box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2) inset;
         }
@@ -136,11 +145,6 @@ export default {
           top: 0;
           left: 0;
           transition: all 0.3s ease-in-out;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
         }
       }
     }
