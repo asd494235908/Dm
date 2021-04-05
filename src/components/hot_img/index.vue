@@ -1,10 +1,6 @@
 <template>
   <div>
-    <img
-      v-lazy="{ src: img, lifecycle: lazyOptions.lifecycle }"
-      :class="{ imgsucc: isimg, loding: !isimg }"
-      alt=""
-    />
+    <img v-lazy="{ src: img }" :class="{ imgsucc: isimg, loding: !isimg }" alt="" />
   </div>
 </template>
 
@@ -22,22 +18,40 @@ export default {
       isimg: false,
     });
     // console.log(props.img);
-    const lazyOptions = reactive({
-      src: '',
-      lifecycle: {
-        loading: () => {
-          state.isimg = true;
-        },
-        error: () => {
-          state.isimg = false;
-        },
-        loaded: () => {
-        },
-      },
+    // const lazyOptions = reactive({
+    //   src: props.img,
+    //   lifecycle: {
+    //     loading: () => {
+    //       nextTick(() => {
+    //         state.isimg = true;
+    //       });
+    //     },
+    //     error: () => {
+    //       state.isimg = false;
+    //     },
+    //     loaded: () => {},
+    //   },
+    // });
+
+    const Img = new Promise((resolve, reject) => {
+      const lodingimg = new Image();
+      lodingimg.src = props.img;
+      lodingimg.onload = () => {
+        resolve(props.img);
+      };
+      lodingimg.onerror = () => {
+        reject(new Error(props.img + "失败"));
+      };
+    });
+    Img.then(() => {
+      state.isimg = true;
+    //   console.log("加载成功");
+    }).catch(() => {
+      state.isimg = false;
+    //   console.log("加载失败");
     });
     return {
       ...toRefs(state),
-      lazyOptions,
     };
   },
 };
@@ -48,9 +62,10 @@ export default {
   width: 160px;
   height: 160px;
   object-fit: cover;
+  transition: all .3 ease-in-out;
 }
 .imgsucc {
-    width: 300px;
-    height: 197px;
+  width: 300px;
+  height: 197px;
 }
 </style>

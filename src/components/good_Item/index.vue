@@ -26,9 +26,10 @@
         v-for="(item, index) in good_data.list"
         :key="'handel_good' + index"
         v-show="good_data.list.length !== 1"
+        :style="{ backgroundImage: 'url(' + item.show_img + ')' }"
         @mouseover="handelmousemove(item, index)"
       >
-        <img :src="item.show_img" alt="" :key="generateUUID" />
+        <!-- <img :src="item.show_img" alt="" :key="generateUUID" /> -->
       </div>
     </div>
     <div class="price">
@@ -401,13 +402,18 @@ export default {
     // margin: 0 5px;
     // border: 1px solid $xt;
     // padding: 2px 5px;
-    img {
-      border: 2px solid $cc;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      margin: 0 10px;
-    }
+    border: 1px solid $cc;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin: 0 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: cover;
+    // }
   }
 }
 .price {
