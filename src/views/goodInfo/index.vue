@@ -126,14 +126,14 @@
         </div>
       </div>
     </div>
-    <img-mask
+    <DcPictureView
       :visible="img_mask"
       :Img_Arr="imgs"
       :Img_Index="img_Index"
       @img_close="isHide_Mask"
       @img_first="img_first"
       @img_end="img_end"
-    ></img-mask>
+    ></DcPictureView>
     <Top></Top>
     <PageBottom></PageBottom>
   </div>
@@ -155,16 +155,19 @@ import { notification, message } from "ant-design-vue";
 import { useStore } from "vuex";
 import { setStore, getStore } from "../../utils/storage.js";
 import MyTitel from "@/components/my_titel/index.vue";
-import ImgMask from "@/components/img_mask/index.vue";
+// import ImgMask from "@/components/img_mask/index.vue";
 import Top from "@/components/go_top/index.vue";
 import PageBottom from "@/components/page_bottom/index.vue";
+import { DcPictureView } from "dc-picture-view";
+// dc-picture-view
 export default {
   components: {
     MyHerder,
     MyTitel,
-    ImgMask,
+    // ImgMask,
     Top,
     PageBottom,
+    DcPictureView,
   },
   setup() {
     const { proxy } = getCurrentInstance();

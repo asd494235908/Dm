@@ -11,7 +11,8 @@ import Antd from './ant/ant.js'
 import 'ant-design-vue/dist/antd.less';
 
 app.use(Antd)
-
+// import  DcPictureView  from "dc-picture-view";
+// app.use(DcPictureView)
 
 import axios from 'axios'
 import VueLazyLoad from 'vue3-lazyload'
