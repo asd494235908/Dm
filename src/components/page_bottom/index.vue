@@ -19,6 +19,17 @@
           </li>
         </ul>
         <ul class="bottom_warp_item">
+          <h3 class="items_titel">上线项目</h3>
+          <li class="item_link">
+            <a href="https://yh.dcmaomi.com/index.html#/" target="_blank">喜物圈商城</a>
+          </li>
+          <li class="item_link">
+            <a href="https://yh.dcmaomi.com/store/#/index" target="_blank"
+              >喜物圈商城后台管理</a
+            >
+          </li>
+        </ul>
+        <ul class="bottom_warp_item">
           <h3 class="items_titel">友情链接</h3>
           <li class="item_link">
             <a href="https://www.vue3js.cn/docs/zh/" target="_blank">Vue.js</a>

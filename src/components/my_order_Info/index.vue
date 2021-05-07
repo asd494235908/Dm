@@ -28,7 +28,7 @@
     </div>
     <div class="no_order" v-if="order.length === 0">
       <img src="https://s1.ax1x.com/2020/11/01/Bw1LDg.png" alt="" />
-      <span>当前没有订单哦</span>
+      <span>当前没有订单哦!</span>
     </div>
   </div>
 </template>
@@ -151,7 +151,7 @@ export default {
   }
 
   span {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: $c9;
   }

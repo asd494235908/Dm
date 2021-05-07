@@ -3,15 +3,20 @@
     <div class="user_img">
       <h3 class="img_titel">头像</h3>
       <div class="content">
-        <a-avatar
-          :size="60"
-          shape="square"
-          class="img_content"
-          :src="LogIn_User_Info.img"
-        >
-          <template #icon><UserOutlined /></template>
-        </a-avatar>
+        <a-tooltip v-if="isPIC">
+          <template #title> 点击修改头像 </template>
+          <a-avatar
+            :size="60"
+            shape="square"
+            class="img_content"
+            :src="LogIn_User_Info.img"
+            @click="modiufindePic"
+          >
+            <template #icon><UserOutlined /></template>
+          </a-avatar>
+        </a-tooltip>
         <a-upload
+          v-else
           v-model:fileList="fileList"
           name="avatar"
           list-type="picture-card"
@@ -23,6 +28,7 @@
           :withCredentials="false"
           @change="handleChange"
           :customRequest="customRequest"
+          ic
         >
           <img v-if="imageUrl" :src="imageUrl" alt="avatar" />
           <div v-else>
@@ -37,7 +43,11 @@
     <div class="user_nickname">
       <h3 class="nickname_titel">昵称</h3>
       <div class="nickname_content">
-        <a-input v-model:value="nickname" allowClear placeholder="请输入您的昵称" />
+        <a-input
+          v-model:value="nickname"
+          allowClear
+          placeholder="请输入您的昵称"
+        />
       </div>
     </div>
     <div class="user_nickname">
@@ -69,17 +79,36 @@
     <div class="user_time">
       <h3 class="time_titel">出生年月</h3>
       <div class="time_content">
-        <p>{{ dateString }}</p>
+        <p v-if="isYer">{{ dateString }}</p>
         <a-date-picker
+          v-else
           v-model:value="datatime"
           :locale="locale"
           :moment="moment"
           @change="onChangeDate"
         />
+        <a-tooltip>
+          <template #title> 修改 </template>
+          <a-button
+            type="primary"
+            shape="circle"
+            @click="modiufindYer"
+            :ghost="true"
+            style="margin: 0 10px"
+          >
+            <template v-slot:icon
+              ><EditOutlined class="item_desc_icon" /></template
+          ></a-button>
+        </a-tooltip>
       </div>
     </div>
     <div class="submint_user_info">
-      <a-button size="large" shape="round" type="primary" @click="handelSubInfo">
+      <a-button
+        size="large"
+        shape="round"
+        type="primary"
+        @click="handelSubInfo"
+      >
         提交
       </a-button>
     </div>
@@ -94,7 +123,11 @@ import { message } from "ant-design-vue";
 import locale from "ant-design-vue/es/date-picker/locale/zh_CN";
 import moment from "moment";
 import "moment/dist/locale/zh-cn";
-import { RightOutlined,UserOutlined } from "@ant-design/icons-vue";
+import {
+  RightOutlined,
+  UserOutlined,
+  EditOutlined,
+} from "@ant-design/icons-vue";
 moment.locale("zh-cn");
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -107,11 +140,14 @@ export default {
     PlusOutlined,
     RightOutlined,
     UserOutlined,
+    EditOutlined,
   },
   setup() {
     const { proxy } = getCurrentInstance();
     const store = useStore();
     const state = reactive({
+      isPIC: true,
+      isYer: true,
       moment,
       locale,
       datatime: "",
@@ -178,7 +214,10 @@ export default {
           state.user_autograph = store.state.userInfo.user_autograph;
           data.desc = store.state.userInfo.user_autograph;
         }
-        if (store.state.userInfo.sex === "null" || store.state.userInfo.sex === null) {
+        if (
+          store.state.userInfo.sex === "null" ||
+          store.state.userInfo.sex === null
+        ) {
           data.sex = "未设置";
         } else {
           state.sex = store.state.userInfo.sex;
@@ -216,7 +255,8 @@ export default {
       }
     };
     const beforeUpload = (file) => {
-      const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+      const isJpgOrPng =
+        file.type === "image/jpeg" || file.type === "image/png";
       if (!isJpgOrPng) {
         message.error("只能上传jpg/png格式的头像!");
       }
@@ -279,10 +319,17 @@ export default {
       });
       if (res.data.success === true) {
         _update_userInfo();
+        state.isYer = true;
         message.success("修改成功");
       } else {
         message.error("修改失败");
       }
+    };
+    const modiufindYer = () => {
+      state.isYer = !state.isYer;
+    };
+    const modiufindePic = () => {
+      state.isPIC = !state.isPIC;
     };
     return {
       ...toRefs(state),
@@ -294,6 +341,8 @@ export default {
       onChange1,
       onChangeDate,
       handelSubInfo,
+      modiufindYer,
+      modiufindePic,
     };
   },
 };
@@ -366,7 +415,7 @@ export default {
       align-items: center;
       justify-content: center;
       p {
-        width: 150px;
+        width: 100px;
       }
     }
   }
@@ -459,6 +508,7 @@ export default {
         margin: 0 15px;
       }
       .img_content {
+        cursor: pointer;
         border-radius: 50%;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
       }

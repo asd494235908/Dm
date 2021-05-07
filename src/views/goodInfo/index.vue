@@ -113,9 +113,9 @@
             </div>
           </div>
         </div>
-        <div class="good_bouttom">
+        <div class="good_bouttom" v-if="goodData.listImg !== undefined">
           <my-titel title="商品详情">
-            <template v-slot:content v-if="goodData.listImg !== undefined">
+            <template v-slot:content >
               <img
                 class="good_bouttom_img"
                 v-lazy="{ src: goodData.listImg.list_url }"
@@ -691,6 +691,7 @@ ul {
           margin-bottom: 10px;
           cursor: pointer;
           font-weight: bold;
+          color: $c6;
           span {
             display: inline-block;
             width: 480px;

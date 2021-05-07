@@ -3,16 +3,25 @@
     <div class="user_info_warp">
       <div class="user" @mouseout="userMouseout" @mouseover="userMouseover">
         <router-link to="/order"
-          ><div class="user_img" :style="{ backgroundPositionX: userX + 'px' }"></div
+          ><div
+            class="user_img"
+            :style="{ backgroundPositionX: userX + 'px' }"
+          ></div
         ></router-link>
-        <div class="user_info" :style="{ top: difal_top + 'px' }" :ref="user_warp">
+        <div
+          class="user_info"
+          :style="{ top: difal_top + 'px' }"
+          :ref="user_warp"
+        >
           <div class="user_info_warp">
-            <img
-              class="user_info_img"
-              :class="{ user_info_img_active: user }"
-              :src="LogIn_User_Info.img"
-              alt=""
-            />
+            <div class="img_warp">
+              <img
+                class="user_info_img"
+                :class="{ user_info_img_active: user }"
+                :src="LogIn_User_Info.img"
+                alt=""
+              />
+            </div>
             <h2 class="user_nickNmae">
               <span class="ellipsis">{{ LogIn_User_Info.nick_name }}</span>
             </h2>
@@ -40,9 +49,17 @@
           </div>
         </div>
       </div>
-      <div id="good" class="good" @mouseout="goodMouseout" @mouseover="goodMouseover">
+      <div
+        id="good"
+        class="good"
+        @mouseout="goodMouseout"
+        @mouseover="goodMouseover"
+      >
         <router-link to="/ShoppingCart"
-          ><div class="good_img" :style="{ backgroundPositionX: goodX + 'px' }"></div
+          ><div
+            class="good_img"
+            :style="{ backgroundPositionX: goodX + 'px' }"
+          ></div
         ></router-link>
         <div
           class="good_Info"
@@ -94,7 +111,12 @@
             </div>
             <div class="bouttom_right">
               <div>
-                <a-button type="primary" shape="round" size="large" @click="goCart">
+                <a-button
+                  type="primary"
+                  shape="round"
+                  size="large"
+                  @click="goCart"
+                >
                   <template #icon>去购物车 </template>
                 </a-button>
               </div>
@@ -123,7 +145,14 @@
 </template>
 
 <script>
-import { reactive, toRefs, computed, getCurrentInstance, watch, nextTick } from "vue";
+import {
+  reactive,
+  toRefs,
+  computed,
+  getCurrentInstance,
+  watch,
+  nextTick,
+} from "vue";
 import { useStore } from "vuex";
 import { setStore, getStore, removeStore } from "@/utils/storage.js";
 import { message } from "ant-design-vue";
@@ -168,7 +197,7 @@ export default {
         return store.state.nav_Show;
       },
       (x, y) => {
-        state.Good_Height = 0
+        state.Good_Height = 0;
       }
     );
     const ModalText = computed(() => {
@@ -644,7 +673,6 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
         .user_info_img {
           width: 70px;
           height: 70px;
@@ -654,6 +682,8 @@ export default {
           margin-top: 20px;
           transform: scale(0);
           transition: all 0.3s ease-in-out;
+          object-fit: cover;
+          overflow: hidden;
         }
         .user_info_img_active {
           transform: scale(1);

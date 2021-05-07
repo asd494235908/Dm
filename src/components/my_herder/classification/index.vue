@@ -190,7 +190,7 @@ export default {
       width: 200px;
       margin-top: 10px;
       .titel {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
         cursor: pointer;
       }
@@ -272,7 +272,7 @@ export default {
         justify-content: center;
         cursor: pointer;
         a {
-          color: $c9;
+          color: $c6;
         }
         a:hover {
           color: $main-col;
