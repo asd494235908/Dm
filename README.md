@@ -101,6 +101,9 @@ axios.defaults.baseURL = "http://您的本地服务器地址:3000"  //注意http
 ```
 npm run serve
 ```
+### 更新日志
+  - 登录增加了rsa加密。
+  - 优化打包配置
 ### 技术疑问交流
 - 免费交流群 `949139553` [![](http://pub.idqqimg.com/wpa/images/group.png)](https://qm.qq.com/cgi-bin/qm/qr?k=dtD6X04E3q7v3C8wuOnUENoW5S7hdGHO&jump_from=webapi)
 - 作者邮箱 asd494235908@qq.com
