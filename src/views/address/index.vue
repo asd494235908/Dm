@@ -205,7 +205,7 @@ export default {
     };
     const onchange = (item) => {
       item.disabled = true;
-      if (!item.checked) {
+      if (item.checked) {
         item.difall = 0;
       } else {
         item.difall = 1;
@@ -214,6 +214,7 @@ export default {
     };
     //提交用户的地址
     const _submirAddress = async (item) => {
+      // console.log(item)
       const res = await proxy.$http.post("/api/subAddress", {
         data: item,
         order_id: state.order_id,
@@ -243,6 +244,7 @@ export default {
       const res = await proxy.$http.post("/api/validate", {});
       const data = res.data;
       if (data.success === true) {
+        console.log(data.data)
         store.commit("seveLogin", data.data);
         initAddress();
       } else {

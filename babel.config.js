@@ -4,13 +4,14 @@ module.exports = {
 
   ],
   "plugins": [
-    ["import", { "libraryName": "ant-design-vue", "libraryDirectory": "es", "style": "css" }] // `style: true` 会加载 less 文件
-
-  ],
-  plugins: [
-    [
-      "import",
-      {
+    ["import", {
+        "libraryName": "ant-design-vue",
+        "libraryDirectory": "es",
+        "style": "css"
+      },
+      'ant-design-vue'
+    ], // `style: true` 会加载 less 文件
+    ["import", {
         libraryName: "dc-picture-view",
         camel2DashComponentName: false, // 是否需要驼峰转短线
         camel2UnderlineComponentName: false, // 是否需要驼峰转下划线
@@ -22,8 +23,10 @@ module.exports = {
         },
         customName: (name) => {
           return `dc-picture-view/${name}/index.js`
-        }
-      }
+        },
+
+      },
+      'dc-picture-view'
     ]
   ]
 }

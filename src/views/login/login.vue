@@ -31,7 +31,9 @@
                   size="large"
                 />
               </div>
-              <span class="user_Password_desc" v-if="pass_erorr">密码输入错误</span>
+              <span class="user_Password_desc" v-if="pass_erorr"
+                >密码输入错误</span
+              >
               <div class="desc">
                 <div class="desc_left">
                   <a-checkbox
@@ -60,7 +62,9 @@
                     @keyup.enter="shubLogIn"
                     :style="{ borderColor: login_nopas_border }"
                   />
-                  <span v-if="svg_erorr" style="color: red">验证码输入错误</span>
+                  <span v-if="svg_erorr" style="color: red"
+                    >验证码输入错误</span
+                  >
                 </div>
               </div>
               <a-button
@@ -76,7 +80,10 @@
                 <!-- <a :href="qqlogin" target="_blank" rel="noopener noreferrer"
                   ><img src="../../../public/static/img/Connect_logo_3.png" alt=""
                 /></a> -->
-                <img src="../../../public/static/img/Connect_logo_3.png" alt="" />
+                <img
+                  src="../../../public/static/img/Connect_logo_3.png"
+                  alt=""
+                />
               </div>
             </form>
           </div>
@@ -90,12 +97,20 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted, getCurrentInstance, nextTick, computed } from "vue";
+import {
+  reactive,
+  toRefs,
+  onMounted,
+  getCurrentInstance,
+  nextTick,
+  computed,
+} from "vue";
 import { notification, message } from "ant-design-vue";
 import { getStore, setStore, removeStore } from "@/utils/storage.js";
 import { useStore } from "vuex";
 import { useRoute, useRouter } from "vue-router";
 import { UserOutlined, LockOutlined, QqOutlined } from "@ant-design/icons-vue";
+import { RsaEncryption } from "@/utils/asd";
 export default {
   components: {
     UserOutlined,
@@ -227,11 +242,13 @@ export default {
       }
     };
     const login = async () => {
+      const userinfo = {
+        username: state.user_Name,
+        pwd: state.user_Password,
+      };
+      const rsapassword = RsaEncryption(userinfo);
       const res = await proxy.$http.post("/api/Login", {
-        userInfo: {
-          username: state.user_Name,
-          pwd: state.user_Password,
-        },
+        userInfo: rsapassword,
       });
       if (res.data.success === true) {
         //判断本地否有购物车数据
@@ -319,7 +336,7 @@ export default {
       console.log(1);
     };
     const handelQQ = () => {
-      message.warning('暂未开放，敬请期待')
+      message.warning("暂未开放，敬请期待");
     };
     return {
       ...toRefs(state),
@@ -331,7 +348,7 @@ export default {
       inuser,
       qqlogin,
       asd,
-      handelQQ
+      handelQQ,
     };
   },
 };
@@ -373,7 +390,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("../../../public/static/img/login_bg.png") no-repeat top center;
+  background: url("../../../public/static/img/login_bg.png") no-repeat top
+    center;
   background-size: cover;
   .desc_left {
     user-select: none;
@@ -389,7 +407,8 @@ export default {
   .warp_box_left {
     width: 588px;
     height: 610px;
-    background: url("../../../public/static/img/login_bg_active.png") no-repeat top center;
+    background: url("../../../public/static/img/login_bg_active.png") no-repeat
+      top center;
     background-size: cover;
   }
   .login_warp {

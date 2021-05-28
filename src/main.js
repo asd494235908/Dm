@@ -19,7 +19,7 @@ import VueLazyLoad from 'vue3-lazyload'
 import { getStore } from "@/utils/storage.js";
 
 //niginx服务器部署了反向代理，没反向代理把下面一行注释回来
-axios.defaults.baseURL = "https://www.dcmaomi.com:3000"  //注意http与https
+// axios.defaults.baseURL = "https://www.dcmaomi.com:3000"  //注意http与https
 
 
 //每次发送请求时候都要获取token，有token就是登录的，没有就是为登录
